@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass', '~> 3.3.3'
+
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'haml'
