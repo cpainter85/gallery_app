@@ -1,6 +1,10 @@
-%h1 Gallery Index
-%p=link_to 'Upload New Picture', new_image_path
-%p
-  %ul
-    -@images.each do |image|
-      %li=link_to image_tag(image.image_url(:thumb)), image_path(image)
+.container
+  .page-header
+    .pull-right
+      =link_to 'Upload New Picture', new_image_path, class: 'btn btn-info'
+    %h1 Gallery Index
+  .container
+    %ul.row
+      -@images.each do |image|
+        %li.col-md-4
+          =link_to image_tag(image.image_url(:thumb)), image_path(image), class: 'image_thumb'
