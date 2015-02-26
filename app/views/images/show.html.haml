@@ -1,0 +1,14 @@
+%p
+  %strong Title:
+  =@image.title
+
+%p=image_tag(@image.image_url)
+%p
+  %strong Description:
+  =@image.description
+%p
+  =link_to 'Back', images_path
+  |
+  =link_to 'Edit', edit_image_path(@image)
+  |
+  =link_to 'Delete', image_path(@image), method: :delete, data: {confirm: 'Are you sure you wish to delete this image from the gallery?'}
