@@ -7,4 +7,10 @@
     %ul.row
       -@images.each do |image|
         %li.col-md-4
-          =link_to image_tag(image.image_url(:thumb)), image_path(image), class: 'image_thumb'
+          =image_tag(image.image_url, class: 'img-responsive')
+          -# =link_to image_tag(image.image_url(:thumb)), image_path(image), class: 'image_thumb'
+  -# lightbox code here
+  #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-body
