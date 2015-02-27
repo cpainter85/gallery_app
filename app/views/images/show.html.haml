@@ -1,14 +1,14 @@
-%p
-  %strong Title:
-  =@image.title
+.container
+  .page-header
+    %h1=@image.title
+  .jumbotron.text-center
+    =image_tag(@image.image_url)
+  .well
+    %strong Description:
+    =@image.description
+  .well.text-center
+    =link_to 'Back', images_path, class: 'btn btn-default'
 
-%p=image_tag(@image.image_url)
-%p
-  %strong Description:
-  =@image.description
-%p
-  =link_to 'Back', images_path
-  |
-  =link_to 'Edit', edit_image_path(@image)
-  |
-  =link_to 'Delete', image_path(@image), method: :delete, data: {confirm: 'Are you sure you wish to delete this image from the gallery?'}
+    =link_to 'Edit', edit_image_path(@image), class: 'btn btn-info'
+
+    =link_to 'Delete', image_path(@image), method: :delete, data: {confirm: 'Are you sure you wish to delete this image from the gallery?'}, class: 'btn btn-danger'
