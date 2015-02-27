@@ -1,17 +1,26 @@
 =form_for @image, html: { multipart: true} do |f|
-  -if @image.errors.any?
-    %h2=pluralize(@image.errors.count, 'error') + ' prohibited this image from being saved:'
-    %ul
-      -@image.errors.full_messages.each do |message|
-        %li=message
-  %p
+  .form-group
+    -if @image.errors.any?
+      .alert.alert-danger
+        %h2=pluralize(@image.errors.count, 'error') + ' prohibited this image from being saved:'
+        %ul
+          -@image.errors.full_messages.each do |message|
+            %li=message
+
+  .form-group
     =f.label :title
-    =f.text_field :title
-  %p
+    =f.text_field :title, class: 'form-control'
+
+  .form-group
     =f.label :description
-    =f.text_area :description
-  %p
+    =f.text_area :description, class: 'form-control'
+
+  .form-group
     =f.label :image
     =f.file_field :image
   %p
-    =f.submit
+    =f.submit class: 'btn btn-primary'
+    -if @image.id
+      =link_to 'Cancel', image_path(@image), class: 'btn btn-default'
+    -else
+      =link_to 'Cancel', images_path, class: 'btn btn-default'
