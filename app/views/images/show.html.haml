@@ -2,7 +2,7 @@
   .page-header
     %h1=@image.title
   .jumbotron.text-center
-    =image_tag(@image.image_url)
+    =image_tag(@image.image_url, class: 'img-responsive')
   .well
     %strong Description:
     =@image.description
